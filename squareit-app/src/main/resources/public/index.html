@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>SquareIt</title>
+    <link rel="stylesheet" href="css/loginRegister.css">
+</head>
+<body>
+<div class="centerTitle">Welcome to SquareIt</div>
+
+<noscript>
+    <h2>JavaScript is disabled. Please enable JavaScript in your web browser</h2>
+</noscript>
+
+<!--<div class="center">
+    <form class="form" accept-charset="utf-8">
+        <div class="caption">Log in</div>
+
+        <div class="table">
+            <div class="row">
+                <input id="loginUserEmail" type="email" placeholder="Email" onkeyup="checkLoginUser();" required />
+            </div>
+            <div class="row">
+                <input id="loginUserPassword" type="password" placeholder="Password" onkeyup="checkLoginUser();" pattern=".{3,}" required />
+            </div>
+        </div>
+
+        <button class="btn-disable" id="loginButton" type="submit" onclick="initRequest('loginUser')">Log in</button>
+    </form>
+-->
+    <div class="verticalLine"></div>
+
+    <form class="form" accept-charset="utf-8">
+        <div class="caption">Create user account</div>
+
+        <div class="table">
+            <div class="row">
+                <input id="createUserFirstName"  value="Adrian" type="text" placeholder="First name" onkeyup="checkCreateUser();" pattern=".{2,}" required />
+            </div>
+            <div class="row">
+                <input id="createUserLastName"  value="Lasso" type="text" placeholder="Last name" />
+            </div>
+            <div class="row">
+                <input id="createUserEmail"  value="someemail@gmail.com" type="email" placeholder="Email" onkeyup="checkCreateUser();" required />
+            </div>
+            <div class="row">
+                <input id="createUserUserName"  value="Abcde" type="text" placeholder="Username" onkeyup="checkCreateUser();" required />
+            </div>
+            <div class="row">
+                <input id="createUserPassword"  value="Fa!1Fa!1Fa!1" type="password" placeholder="Password" pattern=".{3,}" onkeyup="checkCreateUser();" required />
+            </div>
+            <div class="row">
+                <input id="createUserConfirmPassword" value="Fa!1Fa!1Fa!1" type="password" placeholder="Confirm Password" pattern=".{3,}" onkeyup="checkCreateUser();" required />
+            </div>
+        </div>
+
+        <button class="btn-disable" id="createButton" type="submit" onclick="initRequest('createUser')">Create account</button>
+    </form>
+</div>
+
+<script src="js/user.js"></script>
+
+</body>
+</html>

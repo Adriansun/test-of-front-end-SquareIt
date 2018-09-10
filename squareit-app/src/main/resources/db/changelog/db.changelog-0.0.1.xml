@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+            http://www.liquibase.org/xml/ns/dbchangelog-ext
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+  <changeSet id="1" author="UserOne">
+    <validCheckSum>ANY</validCheckSum>
+
+    <preConditions onFail="MARK_RAN">
+      <not>
+        <tableExists tableName="users"/>
+        <tableExists tableName="tokens"/>
+        <tableExists tableName="numbers"/>
+      </not>
+    </preConditions>
+
+    <createTable tableName="user">
+      <column name="id" type="BIGINT" autoIncrement="true">
+        <constraints nullable="false" primaryKey="true"/>
+      </column>
+      <column name="userName" type="varchar(30)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="firstName" type="varchar(30)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="lastName" type="varchar(30)"/>
+      <column name="email" type="varchar(50)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="password" type="varchar(60)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="role" type="varchar(17)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="enabled" type="BIT(1)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="createdDate" type="datetime">
+        <constraints nullable="false"/>
+      </column>
+      <column name="updatedDate" type="datetime"/>
+      <column name="userDeleted" type="BIT(1)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="fk_verificationToken" type="BIGINT">
+        <constraints nullable="false"/>
+      </column>
+      <column name="number" type="BIGINT"/>
+    </createTable>
+
+    <createTable tableName="token">
+      <column name="id" type="BIGINT" autoIncrement="true">
+        <constraints nullable="false" primaryKey="true"/>
+      </column>
+      <column name="token" type="varchar(36)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="expiryDate" type="datetime">
+        <constraints nullable="false"/>
+      </column>
+      <column name="refreshToken" type="datetime"/>
+      <column name="user" type="BIGINT"/>
+    </createTable>
+
+    <createTable tableName="number">
+      <column name="id" type="BIGINT" autoIncrement="true">
+        <constraints nullable="false" primaryKey="true"/>
+      </column>
+      <column name="userIdUnique" type="BIGINT">
+        <constraints nullable="false"/>
+      </column>
+      <column name="number" type="BIGINT">
+        <constraints nullable="false"/>
+      </column>
+      <column name="deletedNumber" type="BIT(1)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="user" type="BIGINT">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+</databaseChangeLog>
